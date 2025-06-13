@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeNotes — Competitive Programming</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #0c0c0d;
+        color: #e6e6e6;
+        font-family: "JetBrains Mono", monospace;
+        padding: 40px 20px;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        text-align: center;
+        margin-bottom: 40px;
+        letter-spacing: 1px;
+        color: #ffffff;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        max-width: 1100px;
+        margin: auto;
+      }
+
+      .topic-card {
+        background-color: #151515;
+        border: 1px solid #333;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.03);
+        cursor: pointer;
+      }
+
+      .topic-card:hover {
+        background-color: #1f1f1f;
+        transform: translateY(-4px);
+        border-color: #3b82f6;
+      }
+
+      .topic-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: #38bdf8;
+      }
+
+      .topic-card p {
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Competitive Programming Notes</h1>
+    <div class="grid" id="topicGrid"></div>
+
+    <script>
+      const topics = [
+        "Dynamic Programming",
+        "Greedy",
+        "Graphs",
+        "Trees",
+        "Number Theory",
+        "Math",
+        "Binary Search",
+        "Two Pointers",
+        "Recursion",
+        "Bit Manipulation",
+        "Stacks & Queues",
+        "Sliding Window",
+        "Prefix Sums",
+        "Disjoint Set",
+        "DFS/BFS",
+        "Segment Tree",
+        "Fenwick Tree",
+        "Backtracking",
+        "Sorting",
+        "Miscellaneous",
+      ];
+
+      const grid = document.getElementById("topicGrid");
+      topics.forEach((topic) => {
+        const card = document.createElement("div");
+        card.className = "topic-card";
+        const topicSlug = encodeURIComponent(topic);
+        card.innerHTML = `
+        <a href="notes.html?topic=${topicSlug}" style="text-decoration: none; color: inherit;">
+          <h2>${topic}</h2>
+          <p>View notes</p>
+        </a>`;
+        grid.appendChild(card);
+      });
+    </script>
+  </body>
+</html>
